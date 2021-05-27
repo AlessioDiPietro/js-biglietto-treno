@@ -7,7 +7,7 @@ console.log("prova generale")
 
 
 // richeista km
-var kmDaFare = prompt("Prego inserire i KM in Totale :") ;
+var kmDaFare = parseFloat(prompt("Prego inserire i KM in Totale :")) ;
 console.log("Km inseriti:", kmDaFare );
 
 
@@ -15,5 +15,28 @@ console.log("Km inseriti:", kmDaFare );
 var anniUtente = parseInt(prompt("Prego inserire la propria età :")) ;
 console.log("anni inseriti:", anniUtente );
 
+
+// tariffa base
 var prezzoBasic = kmDaFare * 0.21;
-document.getElementById("tariffaBase").innerHTML = "COSTO TOTALE VIAGGIO :" +  prezzoBasic + "€";
+document.getElementById("tariffaBase").innerHTML = "Costo totale del viaggio : " +  prezzoBasic + "€";
+
+
+// sconto young
+var scontoUnder = prezzoBasic * 0.2;
+
+// sconto over
+var scontoOver = prezzoBasic * 0.4;
+
+
+
+// sconto applicazione
+var prezzoUltimo;
+document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE : " + prezzoBasic + "€";
+
+if (anniUtente < 18) {
+    prezzoUltimo = prezzoBasic - scontoUnder;
+    document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE SCONTO-UNDER18 : " + prezzoUltimo + "€";
+} else if (anniUtente >= 65) {
+    prezzoUltimo = prezzoBasic - scontoOver;
+    document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE SCONTO-OVER65 : " + prezzoUltimo + "€";
+}
