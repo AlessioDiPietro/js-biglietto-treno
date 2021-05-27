@@ -18,25 +18,29 @@ console.log("anni inseriti:", anniUtente );
 
 // tariffa base
 var prezzoBasic = kmDaFare * 0.21;
-document.getElementById("tariffaBase").innerHTML = "Costo totale del viaggio : " +  prezzoBasic + "€";
+var prezzoBasicDec = prezzoBasic.toFixed(2)
+document.getElementById("tariffaBase").innerHTML = "Costo totale del viaggio : " +  prezzoBasicDec + "€";
 
 
 // sconto young
-var scontoUnder = prezzoBasic * 0.2;
+var scontoUnder = prezzoBasicDec * 0.2;
 
 // sconto over
-var scontoOver = prezzoBasic * 0.4;
+var scontoOver = prezzoBasicDec * 0.4;
 
 
 
 // sconto applicazione
 var prezzoUltimo;
-document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE : " + prezzoBasic + "€";
+document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE : " + prezzoBasicDec + "€";
+var prezzoUltimo = prezzoUltimo.toFixed(2);
 
 if (anniUtente < 18) {
-    prezzoUltimo = prezzoBasic - scontoUnder;
+    prezzoUltimo = prezzoBasicDec - scontoUnder;
     document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE SCONTO-UNDER18 : " + prezzoUltimo + "€";
 } else if (anniUtente >= 65) {
-    prezzoUltimo = prezzoBasic - scontoOver;
+    prezzoUltimo = prezzoBasicDec - scontoOver;
     document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE SCONTO-OVER65 : " + prezzoUltimo + "€";
 }
+
+
