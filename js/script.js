@@ -33,14 +33,14 @@ var scontoOver = prezzoBasicDec * 0.4;
 // sconto applicazione
 var prezzoUltimo;
 document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE : " + prezzoBasicDec + "€";
-var prezzoUltimo = prezzoUltimo.toFixed(2);
 
 if (anniUtente < 18) {
     prezzoUltimo = prezzoBasicDec - scontoUnder;
-    document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE SCONTO-UNDER18 : " + prezzoUltimo + "€";
+    document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE SCONTO-UNDER18 : " + prezzoUltimo.toFixed(2) + "€";
 } else if (anniUtente >= 65) {
     prezzoUltimo = prezzoBasicDec - scontoOver;
-    document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE SCONTO-OVER65 : " + prezzoUltimo + "€";
+    document.getElementById("prezzoUltimo").innerHTML = "PREZZO FINALE SCONTO-OVER65 : " + prezzoUltimo.toFixed(2) + "€";
 }
+
 
 
